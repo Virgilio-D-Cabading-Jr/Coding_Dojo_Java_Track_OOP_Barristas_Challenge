@@ -12,11 +12,13 @@ public class Item {
 
     //  **** CONSTRUCTORS ******************************************
     
+    //  ---- Constructor -------------------------------------------
     public Item() {
-         this.name = "none";
-         this.price = 0;
+        this("none", (double) 0);
     }
 
+    //  ---- Constructor -------------------------------------------
+    //  @param: 1. String name 2. double price
     public Item(String name, double price) {
         this.name = name;
         this.price = price;

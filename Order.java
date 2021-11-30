@@ -15,12 +15,13 @@ public class Order {
 
     //  **** CONSTRUCTORS ******************************************
     
+    //  ---- Constructor -------------------------------------------
     public Order() {
-        this.name ="John";
-        this.ready = false;
-        this.items = new ArrayList<Item>();
+        this("Guest");
     }
 
+    //  ---- Constructor -------------------------------------------
+    //  @param: String name
     public Order(String name) {
         this.name = name;
         this.ready = false;
@@ -63,7 +64,7 @@ public class Order {
 
     public String getOrder() {
         String output = "";
-        output += "Order || name: " + this.name + " | order ready: " + this.ready + " | total price: $" + "\n";
+        output += "Order || name: " + this.name + " | order ready: " + this.ready + " | total price: $" + this.getOrderTotal() +"\n";
         output += "Items in order: ";
         for (int i=0; i<this.items.size(); i++) {
             output += this.items.get(i).getName();
@@ -74,4 +75,41 @@ public class Order {
         return output;
     }
 
+    //  ---- Get Status Message --------------------------------------
+    //  @logic:     1. If order is ready
+    //                      return "Your order is ready. "
+    //              2, If order is not ready
+    //                      return "Thank you for waiting.  Your order will be ready soon."
+    //  @return: String status message
+    public String getStatusMessage() {
+        if (this.ready) {
+            return "Your order is ready.";
+        } else {
+            return "Thank you for waiting.  Your order will be ready soon.";
+        }
+    }
+
+    //  ---- Get Order Total ------------------------------------------
+    //  @return: double sum of all the prices of items in the order
+    public double getOrderTotal() {
+        double sum = 0;
+        for (Item item : this.items) {
+            sum += item.getPrice();
+        }
+        return sum;
+    }
+
+    //  **** SHOW METHODS ******************************************
+
+    //  ---- Display -----------------------------------------------
+    //  Prints to console the order information
+    public void display() {
+        System.out.println("Customer Name: " + this.name);
+        double sum = 0;
+        for (Item item : this.items) {
+            System.out.printf("%s - $%.2f\n", item.getName(), item.getPrice());
+            sum += item.getPrice();
+        }
+        System.out.printf("Total: $%.2f\n", sum);
+    }
 }
