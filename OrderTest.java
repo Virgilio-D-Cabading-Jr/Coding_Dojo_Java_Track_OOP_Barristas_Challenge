@@ -10,7 +10,22 @@ public class OrderTest {
         System.out.println("/////////////////////////////////////////////////////");
         System.out.println("ORDER TEST APP\n");
         
-        ArrayList<Order> orderList = new ArrayList<Order>();
+        ArrayList<Order> orderList = new ArrayList<Order>();        // Create an empty list of orders
+
+        // **** Create a Menu *********
+        Item dripCoffee = new Item("Drip Coffee", 1.75);
+        Item cafeLatte = new Item("Cafe Latte", 3.75);
+        Item mocha = new Item("Mocha", 3.5);
+        Item cappuccino = new Item("Cappuccino", 4.0);
+        Item caramelMachiato = new Item("Caramel Machiatto", 4.0);
+        System.out.println("/////////////////////////////////////////////////////");
+        System.out.println("Barrista Challenge Menu: ");
+        System.out.println(dripCoffee.getItem());
+        System.out.println(cafeLatte.getItem());
+        System.out.println(mocha.getItem());
+        System.out.println(cappuccino.getItem());
+        System.out.println(caramelMachiato.getItem());
+        System.out.println("");
 
         System.out.println("*****************************************************");
         System.out.println("Create two orders of unspecified guests\n");
