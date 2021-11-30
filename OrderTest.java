@@ -39,6 +39,38 @@ public class OrderTest {
         orderList.add(new Order("Batman"));
         orderList.add(new Order("Wonder Woman"));
         printOrderList(orderList);
+
+        System.out.println("*****************************************************");
+        System.out.println("Add at least 2 items to each order using addItem method\n");
+        orderList.get(0).addItem(dripCoffee);
+        orderList.get(0).addItem( cafeLatte );
+        orderList.get(1).addItem( dripCoffee );
+        orderList.get(1).addItem( mocha );
+        orderList.get(2).addItem( dripCoffee );
+        orderList.get(2).addItem( cappuccino );
+        orderList.get(2).addItem( caramelMachiato );
+        orderList.get(3).addItem( cafeLatte );
+        orderList.get(3).addItem( cappuccino );
+        orderList.get(4).addItem( dripCoffee );
+        orderList.get(4).addItem( cafeLatte );
+        orderList.get(4).addItem( caramelMachiato );
+        printOrderList(orderList);
+
+        System.out.println("*****************************************************");
+        System.out.println("Guest 2, Superman, and Wonder Woman's orders are now ready\n");
+        orderList.get(1).setReady(true);
+        orderList.get(2).setReady(true);
+        orderList.get(4).setReady(true);
+        for (Order order : orderList) {
+            if (order.getReady() == true) {
+                System.out.println("----------------");
+                System.out.printf("%s, your order is Ready and your order costs a total of $%.2f\n  ", order.getName(), order.getOrderTotal());
+            }
+        }
+
+        System.out.println("*****************************************************");
+        System.out.println("Print all the orders");
+        printOrderList(orderList);
     }
 
     //  ---- Print Order List --------------------------------------
